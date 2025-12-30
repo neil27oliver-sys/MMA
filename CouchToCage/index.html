@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couch to Cage | Leave the Couch. Enter the Cage.</title>
+    <link rel="icon" href="assets/favicon.ico">
+    <style>
+        :root {
+            --primary-orange: #FF6600;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --light-text: #f4f4f4;
+            --muted-text: #b3b3b3;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Impact', 'Arial Narrow', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            width: 100%;
+            background: #0f0f0f;
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-orange);
+        }
+
+        nav a {
+            color: var(--muted-text);
+            text-decoration: none;
+            margin: 0 20px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        nav a.unlocked {
+            color: var(--light-text);
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+        nav a:hover { color: var(--primary-orange); }
+
+        .logo {
+            width: 120px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+
+        header {
+            position: relative;
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+
+        .center-hero {
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .center-hero img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            margin: 20px 0;
+        }
+
+        .highlight { color: var(--primary-orange); }
+
+        .hero-text {
+            font-size: 2.2rem;
+            margin: 20px 0;
+        }
+
+        .sub-text {
+            font-family: Arial, sans-serif;
+            color: var(--muted-text);
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            background-color: var(--primary-orange);
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover { background: #e65c00; transform: scale(1.05); }
+
+        main {
+            padding: 60px 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 20px;
+            width: 320px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+            border-left: 8px solid var(--primary-orange);
+        }
+
+        .feature-card h3 { margin-top: 0; font-size: 1.8rem; }
+
+        .free-quiz {
+            background: rgba(0,200,81,0.2);
+            border-left: 8px solid #00C851;
+        }
+
+        .trailer-section {
+            margin: 80px 0;
+        }
+
+        audio {
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .paypal-section {
+            margin: 80px 0;
+            padding: 40px;
+            background: rgba(255,102,0,0.15);
+            border-radius: 15px;
+            border: 2px solid var(--primary-orange);
+        }
+
+        .disclaimer {
+            font-size: 0.9rem;
+            color: var(--muted-text);
+            padding: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="assets/monogram.png" alt="Monogram Logo" class="logo">
+        <div class="hero-content">
+            <h1>Are You Ready to Leave the <span class="highlight">Couch?</span></h1>
+            <div class="hero-text">Begin Your MMA Journey</div>
+            <button class="cta-button" onclick="window.location.href='assessment.html'">START YOUR ASSESSMENT</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="center-hero">
+            <img src="assets/MMA.png" alt="MMA Center Hero">
+        </div>
+
+        <section class="features">
+            <div class="feature-card">
+                <h3>Assessment</h3>
+                <p>Fitness Evaluation (Strength, Endurance, Power)</p>
+            </div>
+            <div class="feature-card">
+                <h3>Dashboard</h3>
+                <p>Radar Screen Measure against Benchmarks</p>
+            </div>
+            <div class="feature-card">
+                <h3>Training</h3>
+                <p>Three Training Programs: Build Phased Progression</p>
+                <p>Reversions at end of each phase to radar screen to determine progression</p>
+            </div>
+            <div class="feature-card">
+                <h3>Arsenal</h3>                
+                <p>Muay Thai: The Art of Eight Limbs</p>
+                <p>BJJ: Ground Dominance</p>
+                <p>Wrestling: The Bridge</p>
+            </div>
+            <div class="feature-card">
+                <h3>Mindset</h3>                
+                <p>THE Warrior Mindset: The Mental Cage</p>
+                <p>Master the Knowledge. Own the Cage.</p>
+            </div>
+            <div class="feature-card free-quiz">
+                <h3>Quiz</h3>
+                <p>UFC Rules: Welcome to the Octagon</p>
+                <p>Test your knowledge – 5 questions</p>
+                <h1 style="color:#00C851; margin:20px 0 0;">FREE</h1>
+                <button class="cta-button" style="margin-top:20px; padding:15px 40px; font-size:1.4rem;" onclick="window.location.href='quiz.html'">TAKE THE QUIZ NOW</button>
+            </div>
+        </section>
+
+        <section class="trailer-section">
+            <h2>Get Hyped – Front-End Anthem</h2>
+            <audio controls>
+                <source src="assets/front-end-anthem.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <p>Feel the fire ignite before you even begin.</p>
+        </section>
+
+        <section class="paypal-section">
+            <h2>Unlock Lifetime Access – Only $9</h2>
+            <p>One-time payment. Instant access to full assessment, training programs, arsenal modules, progress tracking, and all future updates.</p>
+            <!-- PayPal Buy Now Button (replace hosted_button_id with your real one) -->
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="YOUR_HOSTED_BUTTON_ID_HERE">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+            <p style="margin-top: 20px; font-size: 1.1rem;">After payment, you'll be redirected to unlock the full experience.</p>
+        </section>
+    </main>
+
+    <footer class="disclaimer">
+        Always consult a physician before starting any new fitness program.
+    </footer>
+
+</body>
+</html>

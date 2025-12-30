@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couch to Cage | Assessment</title>
+    <style>
+        :root {
+            --primary-orange: #FF6600;
+            --gold: #FFD700;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --light-text: #f4f4f4;
+            --muted-text: #b3b3b3;
+            --success: #00C851;
+        }
+
+        body { background: var(--dark-bg); color: var(--light-text); font-family: 'Arial Narrow', Arial, sans-serif; margin: 0; padding: 0; }
+
+        /* Reusable Navigation - Copy to every file */
+        nav { background: #111; padding: 15px 20px; text-align: center; border-bottom: 3px solid var(--primary-orange); position: sticky; top: 0; z-index: 100; }
+        nav a { color: var(--light-text); text-decoration: none; margin: 0 20px; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
+        nav a:hover, nav a.active { color: var(--primary-orange); }
+
+        main { max-width: 1200px; margin: 40px auto; padding: 20px; }
+
+        .container { background: var(--card-bg); padding: 50px; border-radius: 15px; border-left: 6px solid var(--primary-orange); box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+
+        h1 { text-transform: uppercase; letter-spacing: 2px; color: var(--primary-orange); text-align: center; margin-bottom: 40px; }
+
+        .assessment-section { margin-bottom: 80px; }
+
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin: 50px 0; }
+        label { display: block; margin: 15px 0 5px; font-size: 1.2rem; }
+        input[type="number"] { width: 100%; padding: 15px; background: #333; border: 1px solid #444; color: white; border-radius: 8px; font-size: 1.1rem; }
+
+        button.save-btn { background: var(--primary-orange); color: white; border: none; padding: 15px 40px; font-size: 1.3rem; text-transform: uppercase; border-radius: 8px; cursor: pointer; display: block; margin: 40px auto; }
+
+        .benchmark-section { margin-top: 80px; }
+
+        table { width: 100%; border-collapse: collapse; margin: 40px 0; font-family: Arial, sans-serif; font-size: 1.1rem; }
+        th, td { padding: 18px; text-align: center; border: 1px solid #444; }
+        th { background: #222; color: var(--primary-orange); text-transform: uppercase; font-weight: bold; }
+        td { background: #111; }
+        .header-row { background: #222; font-weight: bold; }
+        .note-row { background: rgba(255,102,0,0.2); font-style: italic; font-size: 1.1rem; }
+        .level-1 { background: rgba(255,68,68,0.2); }
+        .level-2 { background: rgba(255,165,0,0.2); }
+        .level-3 { background: rgba(0,200,81,0.2); font-weight: bold; }
+        .user-prof { font-weight: bold; color: var(--primary-orange); font-size: 1.3rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="assessment.html" class="active">Assessment</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="training.html">Training</a>
+        <a href="arsenal.html">Arsenal</a>
+        <a href="mindset.html">Mindset</a>
+        <a href="coach.html" class="active">Coach Assessment</a>
+        
+    </nav>
+
+    <main>
+        <div class="container">
+            <!-- Assessment Section -->
+            <div class="assessment-section">
+                <h1>Fighter Assessment</h1>
+                <p style="text-align:center; font-size:1.2rem; margin-bottom:50px;">Enter your current test results below. These will be saved for your dashboard and progression tracking.</p>
+
+                <div class="form-grid">
+                    <div>
+                        <h2 style="color:var(--primary-orange); text-align:center;">Strength</h2>
+                        <label>Push-Ups (max reps)</label><input type="number" id="pushups" placeholder="e.g. 25">
+                        <label>Bodyweight Squats (max reps in 1 min)</label><input type="number" id="squats" placeholder="e.g. 35">
+                    </div>
+                    <div>
+                        <h2 style="color:var(--primary-orange); text-align:center;">Endurance</h2>
+                        <label>Plank Hold (seconds)</label><input type="number" id="plank" placeholder="e.g. 90">
+                    </div>
+                    <div>
+                        <h2 style="color:var(--primary-orange); text-align:center;">Flexibility</h2>
+                        <label>Sit & Reach (cm past toes)</label><input type="number" id="reach" placeholder="e.g. +10">
+                    </div>
+                </div>
+
+                <button class="save-btn" onclick="saveAndUpdate()">SAVE ASSESSMENT</button>
+            </div>
+
+            <!-- Benchmark Grid Section -->
+            <div class="benchmark-section">
+                <h1 style="margin-bottom:40px;">Benchmark Grid Comparison</h1>
+
+                <table>
+                    <tr class="header-row">
+                        <td></td>
+                        <td></td>
+                        <td>Assessment</td>
+                        <td>Foundation</td>
+                        <td>Skill Development</td>
+                        <td>Amateur Integration</td>
+                        <td>Professional</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4" style="writing-mode: vertical-rl; text-orientation: mixed; padding:30px 10px; background:#222; font-weight:bold;">Categories</td>
+                        <td>Strength</td>
+                        <td id="strength-cell"></td>
+                        <td>Basic functional strength</td>
+                        <td>Intermediate power & explosiveness</td>
+                        <td>Advanced combat strength</td>
+                        <td>Elite fighter level</td>
+                    </tr>
+                    <tr>
+                        <td>Flexibility</td>
+                        <td id="flex-cell"></td>
+                        <td>Improved mobility</td>
+                        <td>Dynamic range for kicks/guards</td>
+                        <td>Full split & high kick capability</td>
+                        <td>Professional-level elasticity</td>
+                    </tr>
+                    <tr>
+                        <td>Endurance</td>
+                        <td id="endurance-cell"></td>
+                        <td>Sustained effort (3 rounds)</td>
+                        <td>High-intensity intervals</td>
+                        <td>5-round fight stamina</td>
+                        <td>Championship endurance</td>
+                    </tr>
+                    <tr>
+                        <td>Proficiency %</td>
+                        <td id="prof-cell" class="user-prof"></td>
+                        <td>0–40%</td>
+                        <td>41–65%</td>
+                        <td>66–85%</td>
+                        <td>86–100%</td>
+                    </tr>
+                    <tr class="note-row">
+                        <td colspan="2">Certification Requirement</td>
+                        <td colspan="5">minimum 75% for each phase individually</td>
+                    </tr>
+                    <tr class="header-row">
+                        <td colspan="2">Descriptive ratings</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="level-1">
+                        <td>1</td>
+                        <td>Couch Potato</td>
+                        <td>Starting point</td>
+                        <td>Not yet</td>
+                        <td>Not yet</td>
+                        <td>Not yet</td>
+                        <td>Not yet</td>
+                    </tr>
+                    <tr class="level-2">
+                        <td>2</td>
+                        <td>Weekend Warrior</td>
+                        <td>Active beginner</td>
+                        <td>Foundation achieved</td>
+                        <td>In progress</td>
+                        <td>Not yet</td>
+                        <td>Not yet</td>
+                    </tr>
+                    <tr class="level-3">
+                        <td>3</td>
+                        <td>Cage Ready</td>
+                        <td>Proven fighter</td>
+                        <td>Certification</td>
+                        <td>Certification</td>
+                        <td>Certification</td>
+                        <td>Elite status</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+
+<script>
+    function saveAndUpdate() {
+        const pushups = parseInt(document.getElementById('pushups').value || 0);
+        const squats = parseInt(document.getElementById('squats').value || 0);
+        const plank = parseInt(document.getElementById('plank').value || 0);
+        const reach = parseInt(document.getElementById('reach').value || 0);
+
+        // Simple normalized scores (out of 100) - adjust scaling as needed
+        const strength = Math.min(100, Math.round((pushups + squats) / 70 * 100)); // example scaling
+        const endurance = Math.min(100, Math.round(plank / 180 * 100));
+        const flexibility = Math.min(100, Math.round((reach + 20) / 40 * 100));
+
+        const overallProf = Math.round((strength + endurance + flexibility) / 3);
+
+        const user = { strength, endurance, flexibility, overallProf };
+
+        localStorage.setItem('userAssessment', JSON.stringify(user));
+
+        // Update table
+        document.getElementById('strength-cell').innerText = strength + '%';
+        document.getElementById('endurance-cell').innerText = endurance + '%';
+        document.getElementById('flex-cell').innerText = flexibility + '%';
+        document.getElementById('prof-cell').innerText = overallProf + '%';
+
+        alert('Assessment saved and grid updated!');
+    }
+
+    // Load and display on page load
+    window.onload = () => {
+        const saved = localStorage.getItem('userAssessment');
+        if (saved) {
+            const user = JSON.parse(saved);
+            document.getElementById('pushups').value = ''; // leave inputs blank or pre-fill if desired
+            document.getElementById('strength-cell').innerText = user.strength + '%';
+            document.getElementById('endurance-cell').innerText = user.endurance + '%';
+            document.getElementById('flex-cell').innerText = user.flexibility + '%';
+            document.getElementById('prof-cell').innerText = user.overallProf + '%';
+        }
+    };
+</script>
+
+</body>
+</html>

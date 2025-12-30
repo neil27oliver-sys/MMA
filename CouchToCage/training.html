@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couch to Cage | Training</title>
+    <style>
+        :root {
+            --primary-orange: #FF6600;
+            --gold: #FFD700;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --light-text: #f4f4f4;
+            --muted-text: #b3b3b3;
+            --success: #00C851;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Arial Narrow', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background: #111;
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-orange);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: var(--primary-orange);
+        }
+
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 3px solid var(--primary-orange);
+        }
+
+        .highlight { color: var(--primary-orange); }
+
+        .phase-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 40px;
+            margin: 40px 20px;
+            border-left: 6px solid var(--primary-orange);
+        }
+
+        h2 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-orange);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .exercise-item {
+            display: flex;
+            background: #111;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+            flex-direction: row;
+        }
+
+        .exercise-item img {
+            width: 40%;
+            object-fit: cover;
+        }
+
+        .exercise-text {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .exercise-text h3 {
+            color: var(--primary-orange);
+            text-transform: uppercase;
+            margin: 0 0 15px 0;
+            font-size: 1.5rem;
+        }
+
+        .exercise-text p {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .reps-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255,102,0,0.15);
+            border-left: 4px solid var(--primary-orange);
+            border-radius: 6px;
+            font-family: Arial, sans-serif;
+        }
+
+        .bottom-section {
+            margin-top: 50px;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .expected-improvements {
+            background: linear-gradient(145deg, #1e1e1e, #111);
+        }
+
+        .arsenal-interaction {
+            background: #111;
+            border: 2px solid var(--gold);
+        }
+
+        .arsenal-interaction h3 {
+            color: var(--gold);
+        }
+
+        .arsenal-list {
+            columns: 2;
+            column-gap: 50px;
+            text-align: left;
+            max-width: 900px;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .exercise-item {
+                flex-direction: column;
+            }
+            .exercise-item img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="assessment.html">Assessment</a>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="training.html">Training</a>
+        <a href="arsenal.html">Arsenal</a>
+        <a href="mindset.html">Mindset</a>
+        <a href="coach.html" class="active">Coach Assessment</a>
+    </nav>
+
+    <div class="header">
+        <h1>COUCH TO <span class="highlight">CAGE</span> TRAINING</h1>
+        <p>Progressive Phases – From Foundation to Amateur Integration</p>
+    </div>
+
+    <!-- Phase 1: Foundation (7 exercises) -->
+    <section class="phase-section">
+        <h2>Phase 1: Foundation</h2>
+
+        <div class="exercise-grid">
+            <div class="exercise-item">
+                <img src="assets/1.png" alt="Walking/Jogging in Place">
+                <div class="exercise-text">
+                    <h3>Walking/Jogging in Place</h3>
+                    <p>Walking/jogging in place is an effective, joint-friendly indoor cardio workout, great for all fitness levels to build aerobic fitness, burn calories, improve coordination, and engage core/arm muscles, especially by lifting knees, swinging arms, and maintaining good posture for 10-20+ minute sessions.</p>
+                    <div class="reps-info">
+                        <strong>Duration:</strong> 10-20+ minutes<br>
+                        <strong>Sets:</strong> Warm-up or main cardio<br>
+                        <strong>Progression:</strong> Increase speed or knee height
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <img src="assets/2.png" alt="HIIT (March Punches)">
+                <div class="exercise-text">
+                    <h3>HIIT (March Punches)</h3>
+                    <p>The HIIT (march punches) exercise is a low-impact cardiovascular movement that combines marching in place with upper-body punching motions. It is often used as part of a warm-up, a beginner-friendly HIIT workout, or a cool-down, engaging both the lower and upper body simultaneously.</p>
+                    <div class="reps-info">
+                        <strong>Intervals:</strong> 20s work / 40s rest<br>
+                        <strong>Rounds:</strong> 8-12<br>
+                        <strong>Total Time:</strong> 10-15 minutes
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <img src="assets/3.png" alt="Bodyweight Squats">
+                <div class="exercise-text">
+                    <h3>Bodyweight Squats</h3>
+                    <p>Bodyweight squats are a fundamental lower-body exercise building strength by mimicking sitting in a chair, involving standing with feet shoulder-width apart, pushing hips back, bending knees, keeping your chest up and back straight, descending until thighs are parallel to the floor (or as low as comfortable), and then driving through heels to return to standing, engaging glutes and core throughout.</p>
+                    <div class="reps-info">
+                        <strong>Sets:</strong> 2-3<br>
+                        <strong>Reps:</strong> 10-15<br>
+                        <strong>Rest:</strong> 60-90 seconds
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <img src="assets/4.png" alt="Push-ups">
+                <div class="exercise-text">
+                    <h3>Push-ups</h3>
+                    <p>A push-up is a foundational bodyweight exercise that builds upper body strength (chest, shoulders, triceps) by starting in a high plank, lowering your body until your chest nears the floor with elbows at ~45 degrees, then pushing back up, keeping your core tight and body in a straight line from head to heels.</p>
+                    <div class="reps-info">
+                        <strong>Sets:</strong> 2-3<br>
+                        <strong>Reps:</strong> 8-12 (knee-modified if needed)<br>
+                        <strong>Rest:</strong> 60-90 seconds
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <img src="assets/5.png" alt="Plank">
+                <div class="exercise-text">
+                    <h3>Plank</h3>
+                    <p>A plank is an isometric core exercise where you hold your body in a straight, rigid line, like a wooden plank, by supporting your weight on your forearms (or hands) and toes, engaging your abs and glutes to keep your hips from sagging or rising too high, effectively strengthening your entire core, back, and shoulders without equipment.</p>
+                    <div class="reps-info">
+                        <strong>Duration:</strong> 20-45 seconds<br>
+                        <strong>Sets:</strong> 3<br>
+                        <strong>Rest:</strong> 45-60 seconds
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <img src="assets/6.png" alt="Static Stretches">
+                <div class="exercise-text">
+                    <h3>Static Stretches</h3>
+                    <p>Child's Pose: Kneel, sit back on heels, lean forward, arms overhead; hold for 30+ seconds to stretch back and hips.<br>Standing Quad Stretch: Hold ankle, pull heel to glute, keep knees together; hold 20-30s.<br>Hamstring Stretch (Seated/Standing): Reach towards toes with straight legs; hold for 20-30s.<br>Overhead Triceps Stretch: Reach one arm overhead, bend elbow, gently pull with other hand; hold for 30s.<br>Calf Stretch: Lean against a wall, one foot back, heel down; hold for 30s.</p>
+                    <div class="reps-info">
+                        <strong>Duration:</strong> 20-30 seconds per stretch/side<br>
+                        <strong>Sets:</strong> 1-2 rounds<br>
+                        <strong>Total Time:</strong> 5-10 minutes
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <img src="assets/7.png" alt="Breathing Exercises">
+                <div class="exercise-text">
+                    <h3>Breathing Exercises</h3>
+                    <p>Breathing exercises, like Belly Breathing, Box Breathing (4-4-4-4), and the 4-7-8 technique, are simple methods to calm the nervous system, reduce stress, and improve focus by controlling inhales, holds, and exhales.</p>
+                    <div class="reps-info">
+                        <strong>Duration:</strong> 5-10 minutes<br>
+                        <strong>Cycles:</strong> 4-8 per technique<br>
+                        <strong>Tip:</strong> Practice daily for best results
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-section expected-improvements">
+            <h3>Expected Health Improvements</h3>
+            <p>Improved cardiovascular health (better endurance, lower resting heart rate); basic strength gains; reduced sedentary risks like weight gain or fatigue. Users often report higher energy and better sleep.</p>
+        </div>
+
+        <div class="bottom-section arsenal-interaction">
+            <h3>Arsenal Interaction Program</h3>
+            <p>Phase 1: Foundation (Beginner – Build Basics & Conditioning)</p>
+            <div class="arsenal-list">
+                <strong>Muay Thai:</strong> Shadow Boxing, Jump Rope (Skipping), Heavy Bag Work (light power only), Jab/Cross, Teep (Push Kick)<br><br>
+                <strong>BJJ:</strong> Hip Escape (Shrimping), Basic Mount Escapes (Bridge & Roll), Closed Guard basics (posture control, basic retention)<br><br>
+                <strong>Wrestling:</strong> Wrestling Stance & Motion, Basic Sprawl (defense first), Hip movement drills
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 2: Skill Development (5 exercises) -->
+    <section class="phase-section">
+        <h2>Phase 2: Skill Development</h2>
+
+        <div class="exercise-grid">
+            <div class="exercise-item">
+                <img src="assets/8.png" alt="Jump Rope">
+                <div class="exercise-text">
+                    <h3>Jump Rope</h3>
+                    <p>A jump rope workout is a full-body cardio session, great for burning calories and improving coordination, using various skips like basic, high knees, alternating feet, or criss-cross within HIIT intervals or steady-state cardio.</p>
+                    <div class="reps-info">
+                        <strong>Duration:</strong> 10-20 minutes<br>
+                        <strong>Intervals:</strong> 30s work / 30s rest or steady<br>
+                        <strong>Warm-up:</strong> 3-5 minutes easy skip
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <img src="assets/9.png" alt="Jab-Cross Combo">
+                <div class="exercise-text">
+                    <h3>Jab-Cross Combo</h3>
+                    <p>A jab-cross combo is a fundamental boxing move (1-2) starting with a straight lead punch (jab) followed by a straight rear-hand power punch (cross), requiring weight transfer from back to front foot, hip/torso rotation, chin tucked, and hands protecting the face.</p>
+                    <div class="reps-info">
+                        <strong>Rounds:</strong> 4-6 × 3 minutes shadowboxing<br>
+                        <strong>Rest:</strong> 1 minute<br>
+                        <strong>Focus:</strong> Rhythm and power
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <img src="assets/10.png" alt="Takedown Defense">
+                <div class="exercise-text">
+                    <h3>Takedown Defense</h3>
+                    <p>Takedown defense in grappling sports focuses on staying on your feet by using head, hands, and hips as defensive lines, primarily through techniques like the sprawl, framing, and controlling wrists/underhooks.</p>
+                    <div class="reps-info">
+                        <strong>Rounds:</strong> 5-8 × 2 minutes drilling<br>
+                        <strong>Partner:</strong> Recommended<br>
+                        <strong>Tip:</strong> Drop hips fast, fight hands
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <img src="assets/11.png" alt="Burpees">
+                <div class="exercise-text">
+                    <h3>Burpees</h3>
+                    <p>A burpee is a full-body strength and cardio exercise combining a squat, plank, push-up, and jump. It's highly effective for building strength, improving endurance, and burning calories.</p>
+                    <div class="reps-info">
+                        <strong>Sets:</strong> 3-4<br>
+                        <strong>Reps:</strong> 8-12<br>
+                        <strong>Rest:</strong> 60-90 seconds
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <img src="assets/12.png" alt="MMA Yoga Flow">
+                <div class="exercise-text">
+                    <h3>MMA Yoga Flow</h3>
+                    <p>An MMA yoga flow combines mobility, strength, and balance with martial arts-inspired movements like kicks and twists, using poses such as Downward Dog, Lunges, Plank, Cobra, Warrior III, and core twists.</p>
+                    <div class="reps-info">
+                        <strong>Duration:</strong> 15-25 minutes<br>
+                        <strong>Flow:</strong> Link poses with breath<br>
+                        <strong>Focus:</strong> Hip openers and rotational power
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-section expected-improvements">
+            <h3>Expected Health Improvements</h3>
+            <p>Enhanced agility, coordination, and flexibility; stress relief and mental focus from skill mastery; calorie burn for weight management (up to 600-800/session). Builds confidence, reducing anxiety.</p>
+        </div>
+
+        <div class="bottom-section arsenal-interaction">
+            <h3>Arsenal Interaction Program</h3>
+            <p>Phase 2: Skill Development (Intermediate – Technique & Drilling)</p>
+            <div class="arsenal-list">
+                <strong>Muay Thai:</strong> Pad Work, Roundhouse Kick (low only at first), Low Kick, Clinching (basic grips, no knees/elbows yet), Knee Strike (straight, body only)<br><br>
+                <strong>BJJ:</strong> Guard Passing (basic knee slice/toreando), Mount Control, Armbar from Guard, Triangle Choke (setup & finish), Side Control maintenance<br><br>
+                <strong>Wrestling:</strong> Single Leg Takedown (setup & finish), Double Leg Takedown (drilled), Guard Pass (wrestling style), Side Control transitions
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 3: Amateur Integration (5 exercises) -->
+    <section class="phase-section">
+        <h2>Phase 3: Amateur Integration</h2>
+
+        <div class="exercise-grid">
+            <div class="exercise-item">
+                <img src="assets/13.png" alt="Shadowboxing">
+                <div class="exercise-text">
+                    <h3>Shadowboxing</h3>
+                    <p>Shadowboxing is a martial arts exercise where you throw punches and practice movements in the air, as if fighting an imaginary opponent, focusing on form, footwork, and technique without impact. It serves as a warm-up, a way to refine skills, and a cardiovascular workout.</p>
+                    <div class="reps-info">
+                        <strong>Rounds:</strong> 4-6 × 3-5 minutes<br>
+                        <strong>Rest:</strong> 1 minute<br>
+                        <strong>Focus:</strong> Combinations, defense, movement
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <img src="assets/14.png" alt="Clinch Work">
+                <div class="exercise-text">
+                    <h3>Clinch Work</h3>
+                    <p>"Clinch work" refers to grappling and controlling an opponent in close quarters, especially in Muay Thai or MMA, involving tight holds (like a collar tie or double collar tie) for controlling posture, delivering knees, and setting up throws.</p>
+                    <div class="reps-info">
+                        <strong>Rounds:</strong> 4-6 × 3 minutes<br>
+                        <strong>Intensity:</strong> Technical to moderate<br>
+                        <strong>Partner:</strong> Required
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <img src="assets/15.png" alt="Ground Basics (Escapes)">
+                <div class="exercise-text">
+                    <h3>Ground Basics (Escapes)</h3>
+                    <p>"Ground basics (escapes)" refers to fundamental techniques for getting out of disadvantageous positions on the ground in grappling sports like BJJ and wrestling. Core movements for survival and regaining position.</p>
+                    <div class="reps-info">
+                        <strong>Rounds:</strong> 5-8 × 3 minutes positional drilling<br>
+                        <strong>Partner:</strong> Required<br>
+                        <strong>Tip:</strong> Bridge, shrimp, frame
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <img src="assets/16.png" alt="Resistance (Dumbbells)">
+                <div class="exercise-text">
+                    <h3>Resistance (Dumbbells)</h3>
+                    <p>Resistance dumbbells are free weights used for strength training to build muscle and endurance, versatile for exercises like curls, presses, and rows, providing constant resistance.</p>
+                    <div class="reps-info">
+                        <strong>Sets:</strong> 3-4<br>
+                        <strong>Reps:</strong> 8-12 per exercise<br>
+                        <strong>Rest:</strong> 60-90 seconds
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <img src="assets/17.png" alt="Foam Rolling">
+                <div class="exercise-text">
+                    <h3>Foam Rolling</h3>
+                    <p>Foam rolling exercises target major muscle groups for recovery and mobility, involving slow rolling and pausing on tight spots (trigger points) for 20-30 seconds to release tension and improve range of motion.</p>
+                    <div class="reps-info">
+                        <strong>Duration:</strong> 10-15 minutes<br>
+                        <strong>Areas:</strong> Calves, hamstrings, quads, glutes, upper back, lats<br>
+                        <strong>Tip:</strong> Breathe deeply, no excessive pain
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-section expected-improvements">
+            <h3>Expected Health Improvements</h3>
+            <p>Full-body strength and endurance boosts; improved mental health via discipline and social ties (if joining classes); overall fitness mimicking athletes, like better body composition. Prepares for amateur events safely.</p>
+        </div>
+
+        <div class="bottom-section arsenal-interaction">
+            <h3>Arsenal Interaction Program</h3>
+            <p>Phase 3: Amateur Integration (Advanced – Live Application & Fight Prep)</p>
+            <div class="arsenal-list">
+                <strong>Muay Thai:</strong> Full Clinching (with knees/elbows), Elbow Strikes (all types), Sparring (controlled), Advanced combinations (e.g., Jab-Cross-Low Kick, Teep-Clinch-Knee)<br><br>
+                <strong>BJJ:</strong> Rear Naked Choke (from back take), Ground-and-Pound (positional striking), Advanced guard play (Spider, De La Riva basics), Live positional sparring & rolling<br><br>
+                <strong>Wrestling:</strong> Chain Wrestling, Takedown defense into offense, Live wrestling rounds, Integrating wrestling with striking (MMA context)
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

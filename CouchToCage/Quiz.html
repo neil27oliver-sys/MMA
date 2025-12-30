@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couch to Cage | Warrior Mindset</title>
+    <style>
+        :root {
+            --primary-orange: #FF6600;
+            --gold: #FFD700;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --light-text: #f4f4f4;
+            --muted-text: #b3b3b3;
+            --success: #00C851;
+            --danger: #ff4444;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Impact', 'Arial Narrow', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+      
+        .library-header {
+            text-align: center;
+            border-bottom: 3px solid var(--primary-orange);
+            margin-bottom: 40px;
+            padding-bottom: 10px;
+        }
+
+        .highlight { color: var(--primary-orange); }
+
+        .module-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary-orange);
+        }
+
+        h2 { text-transform: uppercase; letter-spacing: 1px; margin-top: 0; }
+
+        .rules-list {
+            list-style: none;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .rules-list li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .rules-list li::before {
+            content: '🥊';
+            position: absolute;
+            left: 0;
+            font-size: 1.4rem;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 30px auto;
+            font-family: Arial, sans-serif;
+        }
+
+        .quiz-question {
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+        }
+
+        .quiz-question h3 {
+            color: var(--primary-orange);
+            margin-top: 0;
+        }
+
+        .options label {
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            background: #222;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .options label:hover {
+            background: #333;
+        }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+        }
+
+        .result {
+            text-align: center;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            font-size: 1.4rem;
+            display: none;
+        }
+
+        .score-good {
+            background: rgba(0, 200, 81, 0.2);
+            border: 2px solid var(--success);
+            color: var(--success);
+        }
+
+        .score-bad {
+            background: rgba(255, 68, 68, 0.2);
+            border: 2px solid var(--danger);
+            color: var(--danger);
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-style: italic;
+            color: var(--muted-text);
+            font-size: 0.95rem;
+        }
+
+        .correct { color: var(--success); font-weight: bold; }
+        .incorrect { color: var(--danger); font-weight: bold; }
+    </style>
+</head>
+<body>
+     <nav>
+        <a href="index.html"><h1><span class="highlight">HOME</h1></a> 
+            
+    </nav>
+
+    <div class="library-header">
+        <h1><span class="highlight">QIUZ </span>: THE UFC RULES</h1>
+        <p>Align your mind. Conquer the cage.</p>
+    </div>
+
+    <!-- UFC Rules Module -->
+    <section class="module-section">
+        <h2>UFC Rules Basics: Welcome to the Octagon</h2>
+        <p style="font-family: Arial, sans-serif; text-align: center; color: var(--muted-text); max-width: 800px; margin: 0 auto 30px;">
+            The Unified Rules of Mixed Martial Arts govern professional MMA in the UFC. Understanding them helps you appreciate the strategy, safety, and excitement of every fight.
+        </p>
+
+        <ul class="rules-list">
+            <li><strong>Rounds:</strong> Non-title fights are 3 rounds of 5 minutes each. Championship and main events are 5 rounds of 5 minutes. 1-minute rest between rounds.</li>
+            <li><strong>Ways to Win:</strong> KO/TKO (referee stoppage), Submission (tap out), or Decision (judges score using the 10-point must system based on effective striking/grappling, aggression, and octagon control).</li>
+            <li><strong>Major Fouls:</strong> Eye gouging, groin strikes, headbutts, strikes to the spine or back of the head, small joint manipulation, hair pulling, biting, fish-hooking, and more. Fouls can lead to point deductions or disqualification.</li>
+            <li><strong>Grounded Fighter Rule:</strong> A fighter is considered "grounded" if any body part other than hands or feet touches the canvas. This protects them from knees or kicks to the head.</li>
+            <li><strong>Recently Allowed:</strong> 12-6 elbows (straight down) are now legal under the current Unified Rules.</li>
+        </ul>
+
+        <div class="quiz-container">
+            <h2 style="text-align: center; color: var(--primary-orange);">UFC Rules Quiz</h2>
+            <p style="text-align: center; color: var(--muted-text);">Test your knowledge – 5 questions</p>
+
+            <form id="ufc-quiz">
+                <div class="quiz-question">
+                    <h3>1. How long is a standard non-title UFC fight?</h3>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="wrong"> a) 3 rounds of 3 minutes</label>
+                        <label><input type="radio" name="q1" value="correct"> b) 3 rounds of 5 minutes</label>
+                        <label><input type="radio" name="q1" value="wrong"> c) 5 rounds of 5 minutes</label>
+                    </div>
+                    <div class="explanation" id="exp1"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <h3>2. Which of the following is a foul?</h3>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="wrong"> a) Knee to the body of a standing opponent</label>
+                        <label><input type="radio" name="q2" value="correct"> b) Eye gouge</label>
+                        <label><input type="radio" name="q2" value="wrong"> c) Legal elbow to the head</label>
+                    </div>
+                    <div class="explanation" id="exp2"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <h3>3. What is the primary scoring criteria for judges?</h3>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="correct"> a) Effective striking and grappling</label>
+                        <label><input type="radio" name="q3" value="wrong"> b) Flashiest moves</label>
+                        <label><input type="radio" name="q3" value="wrong"> c) Who the crowd cheers louder for</label>
+                    </div>
+                    <div class="explanation" id="exp3"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <h3>4. When is a fighter considered "grounded"?</h3>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="correct"> a) Any body part other than hands/feet on the canvas</label>
+                        <label><input type="radio" name="q4" value="wrong"> b) Only when both knees are down</label>
+                        <label><input type="radio" name="q4" value="wrong"> c) Only when flat on their back</label>
+                    </div>
+                    <div class="explanation" id="exp4"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <h3>5. Are 12-6 elbows (straight downward) currently allowed?</h3>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="wrong"> a) No, still banned</label>
+                        <label><input type="radio" name="q5" value="correct"> b) Yes, now legal</label>
+                    </div>
+                    <div class="explanation" id="exp5"></div>
+                </div>
+
+                <button type="button" class="submit-btn" onclick="checkQuiz()">SUBMIT QUIZ</button>
+            </form>
+
+            <div id="result" class="result"></div>
+        </div>
+    </section>
+
+<script>
+    function checkQuiz() {
+        let score = 0;
+        const total = 5;
+
+        // Question 1
+        if (document.querySelector('input[name="q1"]:checked')?.value === "correct") {
+            score++;
+            document.getElementById('exp1').innerHTML = '<span class="correct">Correct!</span> Non-title fights are 3 × 5-minute rounds. Title fights are 5 × 5.';
+        } else {
+            document.getElementById('exp1').innerHTML = '<span class="incorrect">Incorrect.</span> Non-title fights are 3 × 5-minute rounds. Title fights are 5 × 5.';
+        }
+
+        // Question 2
+        if (document.querySelector('input[name="q2"]:checked')?.value === "correct") {
+            score++;
+            document.getElementById('exp2').innerHTML = '<span class="correct">Correct!</span> Eye gouges are strictly prohibited.';
+        } else {
+            document.getElementById('exp2').innerHTML = '<span class="incorrect">Incorrect.</span> Eye gouges are strictly prohibited.';
+        }
+
+        // Question 3
+        if (document.querySelector('input[name="q3"]:checked')?.value === "correct") {
+            score++;
+            document.getElementById('exp3').innerHTML = '<span class="correct">Correct!</span> Judges prioritize effective damage and control.';
+        } else {
+            document.getElementById('exp3').innerHTML = '<span class="incorrect">Incorrect.</span> Judges prioritize effective damage and control.';
+        }
+
+        // Question 4
+        if (document.querySelector('input[name="q4"]:checked')?.value === "correct") {
+            score++;
+            document.getElementById('exp4').innerHTML = '<span class="correct">Correct!</span> This rule protects downed fighters from knees/kicks to the head.';
+        } else {
+            document.getElementById('exp4').innerHTML = '<span class="incorrect">Incorrect.</span> This rule protects downed fighters from knees/kicks to the head.';
+        }
+
+        // Question 5
+        if (document.querySelector('input[name="q5"]:checked')?.value === "correct") {
+            score++;
+            document.getElementById('exp5').innerHTML = '<span class="correct">Correct!</span> The rule was updated in recent years.';
+        } else {
+            document.getElementById('exp5').innerHTML = '<span class="incorrect">Incorrect.</span> The rule was updated in recent years.';
+        }
+
+        // Show result
+        const resultDiv = document.getElementById('result');
+        resultDiv.style.display = 'block';
+        const percentage = Math.round((score / total) * 100);
+
+        if (score >= 4) {
+            resultDiv.className = 'result score-good';
+            resultDiv.innerHTML = `<strong>EXCELLENT! ${score}/${total} (${percentage}%)</strong><br>You've earned the "Octagon Scholar" badge! 🥇`;
+        } else {
+            resultDiv.className = 'result score-bad';
+            resultDiv.innerHTML = `<strong>${score}/${total} (${percentage}%)</strong><br>Review the rules and try again to unlock the badge (80%+ required).`;
+        }
+    }
+</script>
+
+</body>
+</html>

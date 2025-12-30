@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couch to Cage | Coach Assessment</title>
+    <style>
+        :root {
+            --primary-orange: #FF6600;
+            --gold: #FFD700;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --light-text: #f4f4f4;
+            --muted-text: #b3b3b3;
+            --success: #00C851;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Arial Narrow', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background: #111;
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-orange);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover, nav a.active { color: var(--primary-orange); }
+
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .highlight { color: var(--primary-orange); }
+
+        main {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            border-left: 6px solid var(--primary-orange);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        h1, h2 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-orange);
+            text-align: center;
+        }
+
+        select {
+            width: 100%;
+            padding: 15px;
+            background: #333;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            margin: 30px 0;
+        }
+
+        .discipline-section {
+            margin-bottom: 80px;
+        }
+
+        .technique-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .technique-card {
+            background: #111;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #444;
+        }
+
+        .technique-card h3 {
+            color: var(--primary-orange);
+            margin-top: 0;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+        }
+
+        .description {
+            font-family: Arial, sans-serif;
+            color: var(--muted-text);
+            line-height: 1.6;
+            margin: 15px 0 25px;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .score-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 18px 0;
+            font-family: Arial, sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .score-row label {
+            flex: 1;
+            text-align: left;
+        }
+
+        .score-row input {
+            width: 90px;
+            padding: 10px;
+            background: #222;
+            border: 1px solid #555;
+            color: white;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .category-overall {
+            text-align: center;
+            font-size: 1.6rem;
+            margin: 40px 0 20px;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .overall {
+            text-align: center;
+            font-size: 2rem;
+            margin: 60px 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .save-btn {
+            background: var(--primary-orange);
+            color: white;
+            padding: 20px 60px;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            display: block;
+            margin: 60px auto;
+        }
+
+        .disclaimer {
+            background: rgba(255,102,0,0.1);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 60px 0 20px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 1.1rem;
+            border: 1px solid var(--primary-orange);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="assessment.html">Assessment</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="training.html">Training</a>
+        <a href="arsenal.html">Arsenal</a>
+        <a href="mindset.html">Mindset</a>
+        <a href="coach.html" class="active">Coach Assessment</a>
+    </nav>
+
+    <div class="header">
+        <h1>MMA Coach <span class="highlight">Arsenal Assessment</span></h1>
+        <p>Evaluate fighter proficiency – Oral knowledge & Physical execution (1-10 scale)</p>
+    </div>
+
+    <main>
+        <div class="container">
+            <label for="phase-select"><strong>Select Assessment Phase:</strong></label>
+            <select id="phase-select" onchange="loadTechniques()">
+                <option value="initial">Initial Assessment (Oral Only)</option>
+                <option value="foundation">Foundation (Physical)</option>
+                <option value="skill">Skill Development (Physical)</option>
+                <option value="amateur">Amateur Integration (Physical)</option>
+            </select>
+
+            <div class="discipline-section">
+                <h2>Muay Thai: The Art of Eight Limbs</h2>
+                <div class="category-overall" id="muayThai-overall">Muay Thai Proficiency: 0%</div>
+                <div class="technique-grid" id="muayThai-techniques"></div>
+            </div>
+
+            <div class="discipline-section">
+                <h2>BJJ: Ground Dominance</h2>
+                <div class="category-overall" id="bjj-overall">BJJ Proficiency: 0%</div>
+                <div class="technique-grid" id="bjj-techniques"></div>
+            </div>
+
+            <div class="discipline-section">
+                <h2>Wrestling: The Bridge</h2>
+                <div class="category-overall" id="wrestling-overall">Wrestling Proficiency: 0%</div>
+                <div class="technique-grid" id="wrestling-techniques"></div>
+            </div>
+
+            <div class="overall" id="overall-prof">Overall Proficiency: 0%</div>
+
+            <button class="save-btn" onclick="saveCoachAssessment()">SAVE COACH ASSESSMENT</button>
+
+            <div class="disclaimer">
+                <strong>Certification Rule:</strong> Arsenal Proficiency must exceed 75% overall to certify. Only qualified MMA coaches may complete this assessment.
+            </div>
+        </div>
+    </main>
+
+<script>
+    const techniques = {
+        muayThai: [
+            { name: "Shadow Boxing", desc: "A fundamental exercise for practicing technique, footwork, and movement patterns without a partner or equipment." },
+            { name: "Clinching", desc: "Standing grappling technique essential for controlling an opponent's balance and delivering knees." },
+            { name: "Pad Work", desc: "Training with a coach holding Thai pads allows for powerful combinations and timing." },
+            { name: "Sparring", desc: "Controlled fighting tests techniques and builds adaptability." },
+            { name: "Heavy Bag Work", desc: "Vital for developing power and conditioning for all strikes." },
+            { name: "Jump Rope", desc: "Builds cardiovascular fitness and footwork rhythm." },
+            { name: "Jab/Cross", desc: "Fundamental long-range combo focusing on fluidity and balance." },
+            { name: "Roundhouse Kick", desc: "Hip-driven strike using the shin for rotational power." },
+            { name: "Teep (Push Kick)", desc: "Versatile for distance management and disrupting rhythm." },
+            { name: "Low Kick", desc: "Powerful thigh-targeting strike damaging mobility." },
+            { name: "Elbow Strike", desc: "Devastating close-range weapon using hip rotation." },
+            { name: "Knee Strike", desc: "Deadly in clinch and open range with hip drive." }
+        ],
+        bjj: [
+            { name: "Armbar from Guard", desc: "Leg-based submission hyperextending the elbow from guard positions." },
+            { name: "Triangle Choke", desc: "Figure-four leg lock choking blood flow, typically from guard." },
+            { name: "Rear Naked Choke", desc: "Blood choke from back mount; highly effective finish." },
+            { name: "Mount Control", desc: "Dominant top position using pressure and leverage." },
+            { name: "Ground-and-Pound", desc: "Striking from dominant positions while maintaining control." }
+        ],
+        wrestling: [
+            { name: "Wrestling Stance", desc: "Low center of gravity with bent knees for balance." },
+            { name: "Double Leg Takedown", desc: "Shoot in to grab both legs and drive opponent to mat." },
+            { name: "Single Leg Takedown", desc: "Attack one leg with leverage and drive to finish." },
+            { name: "Sprawl (Defense)", desc: "Counter takedowns by dropping hips back." },
+            { name: "Guard Pass", desc: "Break past opponent's guard to dominant side control." },
+            { name: "Side Control", desc: "Dominant position for pressure, transitions, and attacks." }
+        ]
+    };
+
+    const phaseMoves = {
+        initial: {
+            muayThai: techniques.muayThai.map(t => t.name),
+            bjj: techniques.bjj.map(t => t.name),
+            wrestling: techniques.wrestling.map(t => t.name)
+        },
+        foundation: {
+            muayThai: ["Shadow Boxing", "Jump Rope", "Heavy Bag Work", "Jab/Cross", "Teep (Push Kick)"],
+            bjj: ["Armbar from Guard", "Triangle Choke", "Mount Control"],
+            wrestling: ["Wrestling Stance", "Sprawl (Defense)"]
+        },
+        skill: {
+            muayThai: ["Pad Work", "Roundhouse Kick", "Low Kick", "Clinching", "Knee Strike"],
+            bjj: ["Armbar from Guard", "Triangle Choke", "Rear Naked Choke", "Mount Control", "Ground-and-Pound"],
+            wrestling: ["Double Leg Takedown", "Single Leg Takedown", "Guard Pass", "Side Control"]
+        },
+        amateur: {
+            muayThai: ["Clinching", "Elbow Strike", "Knee Strike", "Sparring"],
+            bjj: ["Rear Naked Choke", "Ground-and-Pound"],
+            wrestling: ["Double Leg Takedown", "Single Leg Takedown", "Guard Pass", "Side Control"]
+        }
+    };
+
+    function loadTechniques() {
+        const phase = document.getElementById('phase-select').value;
+        const isOralOnly = phase === 'initial';
+
+        ['muayThai', 'bjj', 'wrestling'].forEach(discipline => {
+            const container = document.getElementById(discipline + '-techniques');
+            if (!container) return; 
+            
+            container.innerHTML = '';
+            const moveNames = phaseMoves[phase][discipline];
+
+            techniques[discipline].filter(t => moveNames.includes(t.name)).forEach(move => {
+                const card = document.createElement('div');
+                card.className = 'technique-card';
+                card.innerHTML = `
+                    <h3>${move.name}</h3>
+                    <p class="description">${move.desc}</p>
+                    ${isOralOnly ? '' : `
+                    <div class="score-row">
+                        <label>Physical Execution (1-10)</label>
+                        <input type="number" min="0" max="10" class="score-input" data-discipline="${discipline}" data-move="${move.name}" data-type="physical">
+                    </div>`}
+                    <div class="score-row">
+                        <label>Oral Knowledge (1-10)</label>
+                        <input type="number" min="0" max="10" class="score-input" data-discipline="${discipline}" data-move="${move.name}" data-type="oral">
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        });
+
+        updateAllProficiencies();
+    }
+
+    function updateCategoryProficiency(discipline) {
+        let total = 0;
+        let count = 0;
+        document.querySelectorAll(`.score-input[data-discipline="${discipline}"]`).forEach(input => {
+            const val = parseInt(input.value) || 0;
+            if (val > 0) {
+                total += val;
+                count++;
+            }
+        });
+
+        const avg = count > 0 ? Math.round((total / (count * 10)) * 100) : 0;
+        const label = discipline === 'muayThai' ? 'Muay Thai' : discipline.toUpperCase();
+        document.getElementById(discipline + '-overall').innerText = `${label} Proficiency: ${avg}%`;
+    }
+
+    function updateAllProficiencies() {
+        ['muayThai', 'bjj', 'wrestling'].forEach(updateCategoryProficiency);
+        updateOverall();
+    }
+
+    function updateOverall() {
+        let total = 0;
+        let count = 0;
+        document.querySelectorAll('.score-input').forEach(input => {
+            const val = parseInt(input.value) || 0;
+            if (val > 0) {
+                total += val;
+                count++;
+            }
+        });
+
+        const avg = count > 0 ? Math.round((total / (count * 10)) * 100) : 0;
+        document.getElementById('overall-prof').innerText = `Overall Proficiency: ${avg}%`;
+    }
+
+    document.addEventListener('input', e => {
+        if (e.target.classList.contains('score-input')) {
+            const discipline = e.target.dataset.discipline;
+            updateCategoryProficiency(discipline);
+            updateOverall();
+        }
+    });
+
+    function saveCoachAssessment() {
+        const scores = {};
+        const phase = document.getElementById('phase-select').value;
+
+        ['muayThai', 'bjj', 'wrestling'].forEach(discipline => {
+            scores[discipline] = {};
+            document.querySelectorAll(`.score-input[data-discipline="${discipline}"]`).forEach(input => {
+                const move = input.dataset.move;
+                const type = input.dataset.type;
+                if (!scores[discipline][move]) scores[discipline][move] = {};
+                scores[discipline][move][type] = parseInt(input.value) || 0;
+            });
+        });
+
+        localStorage.setItem('coachAssessment_' + phase, JSON.stringify(scores));
+        const overall = document.getElementById('overall-prof').innerText;
+        alert('Coach assessment saved for ' + phase + '!\n' + overall);
+    }
+
+    window.onload = () => {
+        loadTechniques();
+    };
+</script>
+
+</body>
+</html>

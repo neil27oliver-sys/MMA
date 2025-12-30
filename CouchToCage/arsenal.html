@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couch to Cage | The Arsenal</title>
+    <style>
+        :root {
+            --primary-orange: #FF6600;
+            --gold: #FFD700;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --light-text: #f4f4f4;
+            --muted-text: #b3b3b3;
+            --success: #00C851;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Arial Narrow', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+         /* Reusable Navigation - Copy to every file */
+        nav { background: #111; padding: 15px 20px; text-align: center; border-bottom: 3px solid var(--primary-orange); position: sticky; top: 0; z-index: 100; }
+        nav a { color: var(--light-text); text-decoration: none; margin: 0 20px; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
+        nav a:hover, nav a.active { color: var(--primary-orange); }
+
+        main { max-width: 1100px; margin: 40px auto; padding: 20px; }
+        .container { background: var(--card-bg); padding: 50px; border-radius: 15px; border-left: 6px solid var(--primary-orange); box-shadow: 0 10px 30px rgba(0,0,0,0.6); text-align: center; }
+
+        h1 { text-transform: uppercase; letter-spacing: 2px; color: var(--primary-orange); margin-bottom: 30px; }
+
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin: 50px 0; }
+        label { display: block; margin: 15px 0 5px; font-size: 1.2rem; }
+        input[type="number"] { width: 100%; padding: 15px; background: #333; border: 1px solid #444; color: white; border-radius: 8px; font-size: 1.1rem; }
+
+        button { background: var(--primary-orange); color: white; border: none; padding: 15px 40px; font-size: 1.3rem; text-transform: uppercase; border-radius: 8px; cursor: pointer; margin: 20px 10px; }
+        button.gold { background: var(--gold); color: black; font-weight: bold; }
+
+        .notice { background: rgba(255,102,0,0.2); padding: 25px; border-radius: 12px; margin: 40px 0; font-size: 1.2rem; }
+        .coach-note { background: rgba(0,200,81,0.2); padding: 25px; border-radius: 12px; margin: 40px 0; font-size: 1.2rem; font-weight: bold; }
+
+        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px; }
+
+        .library-header {
+            text-align: center;
+            border-bottom: 3px solid var(--primary-orange);
+            margin-bottom: 40px;
+            padding-bottom: 10px;
+        }
+
+        .highlight { color: var(--primary-orange); }
+
+        .module-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-left: 6px solid var(--primary-orange);
+        }
+
+        h2 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-orange);
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .intro-text {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            color: var(--muted-text);
+        }
+
+        .technique-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .technique-card {
+            background: #111;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #333;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .technique-card h3 {
+            background: var(--primary-orange);
+            color: white;
+            margin: 0;
+            padding: 15px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Impact', sans-serif;
+        }
+
+        .technique-content {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .technique-content p {
+            margin: 10px 0;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .tip {
+            color: var(--success);
+            font-weight: bold;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<nav>
+        <nav>
+        <a href="index.html">Home</a>
+        <a href="assessment.html" class="active">Assessment</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="training.html">Training</a>
+        <a href="arsenal.html">Arsenal</a>
+        <a href="mindset.html">Mindset</a>
+        <a href="coach.html" class="active">Coach Assessment</a>
+     </nav> 
+
+    <div class="library-header">
+        <h1>THE <span class="highlight">ARSENAL</span></h1>
+        <p>Master the Weapons. Dominate the Cage.</p>
+    </div>
+
+    <!-- Muay Thai Section -->
+    <section class="module-section">
+        <h2>Muay Thai: The Art of Eight Limbs</h2>
+        <p class="intro-text">The six best training techniques in Muay Thai focus on developing core combat skills, stamina, and ring generalship.</p>
+
+        <div class="technique-grid">
+            <div class="technique-card">
+                <h3>Shadow Boxing</h3>
+                <div class="technique-content">
+                    <p>A fundamental exercise for practicing technique, footwork, and movement patterns without a partner or equipment. It helps build muscle memory and improve stamina and precision in strikes.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/uFJSSYECov4" allowfullscreen></iframe>
+                    </div>
+                    <p class="tip">Tip: Visualize an opponent and mix offense with defense.</p>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Clinching</h3>
+                <div class="technique-content">
+                    <p>This standing grappling technique is essential for controlling an opponent's balance, delivering knees and elbows, and defending against attacks in close range.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/dHJlpFZ9EdA?si=t_XT7bG4aYszWY5R" allowfullscreen></iframe>
+
+                    </div>
+                    <p class="tip">Tip: Focus on grip control and off-balancing.</p>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Pad Work</h3>
+                <div class="technique-content">
+                    <p>Training with a coach holding Thai pads allows for powerful combinations, timing, and rhythm at high intensity with immediate feedback.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/bbVf5Dh6vmU" allowfullscreen></iframe>
+                    </div>
+                    <p class="tip">Tip: Explode through the pads with full power.</p>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Sparring</h3>
+                <div class="technique-content">
+                    <p>Controlled fighting tests techniques, improves defense, and builds adaptability. Treat it as learning, not winning.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/BWecA3A57FI" allowfullscreen></iframe>
+                    </div>
+                    <p class="tip">Tip: Stay relaxed and focus on technique over power.</p>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Heavy Bag Work</h3>
+                <div class="technique-content">
+                    <p>Vital for developing power, speed, and conditioning for all strikes at full power.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/NaNNBTMbSm8" allowfullscreen></iframe>
+                    </div>
+                    <p class="tip">Tip: Treat the bag like a moving opponent.</p>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Jump Rope</h3>
+                <div class="technique-content">
+                    <p>Builds cardiovascular fitness, coordination, and footwork rhythm essential for ring movement.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/W09fpNT1hsI" allowfullscreen></iframe>
+                    </div>
+                    <p class="tip">Tip: Keep elbows tight and bounce lightly on the balls of your feet.</p>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Jab/Cross</h3>
+                <div class="technique-content">
+                    <p>Fundamental long-range combo focusing on fluidity, balance, and hip-driven power.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/Wtt40bKuSGs" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Roundhouse Kick</h3>
+                <div class="technique-content">
+                    <p>Hip-driven strike using the shin for rotational power to legs, body, or head.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/wwc4cnvkwnk" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Teep (Push Kick)</h3>
+                <div class="technique-content">
+                    <p>Versatile for distance management and disrupting rhythm with thrusting hip power.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/7rlAj7pyvnE" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Low Kick</h3>
+                <div class="technique-content">
+                    <p>Powerful thigh-targeting strike using shin rotation to damage mobility.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/reUa4aHfkY0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Elbow Strike</h3>
+                <div class="technique-content">
+                    <p>Devastating close-range weapon using hip rotation for cuts and KOs.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/NUpr4A-4nJw" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Knee Strike</h3>
+                <div class="technique-content">
+                    <p>Versatile for offense and defense with hip drive; deadly in clinch and open range.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/F3mi_GwTSgE" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BJJ Section -->
+    <section class="module-section">
+        <h2>BJJ: Ground Dominance</h2>
+        <p class="intro-text">Core concepts include guards for defense/offense and distance management. Essential moves cover submissions, control, and escapes.</p>
+
+        <div class="technique-grid">
+            <div class="technique-card">
+                <h3>Armbar from Guard</h3>
+                <div class="technique-content">
+                    <p>Leg-based submission hyperextending the elbow from guard positions.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/2oVHEcyJhIM" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Triangle Choke</h3>
+                <div class="technique-content">
+                    <p>Figure-four leg lock choking blood flow, typically from guard.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/k54daRsX3co" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Rear Naked Choke</h3>
+                <div class="technique-content">
+                    <p>Blood choke from back mount; highly effective finish.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/KW2RvtWgBxU" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Mount Control</h3>
+                <div class="technique-content">
+                    <p>Dominant top position using pressure and leverage to prevent escapes.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/wgkbAnzMXQQ?si=OXcT2RW9Vy1HDnV7"  allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Ground-and-Pound</h3>
+                <div class="technique-content">
+                    <p>Striking from dominant positions while maintaining control.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/-H2wEr4ZAJM?si=2GCR0rHpXG7Wl8rf"  allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wrestling Section -->
+    <section class="module-section">
+        <h2>Wrestling: The Bridge</h2>
+        <p class="intro-text">Focus on stance, explosive power, control, and transitions between standing and ground.</p>
+
+        <div class="technique-grid">
+            <div class="technique-card">
+                <h3>Wrestling Stance</h3>
+                <div class="technique-content">
+                    <p>Low center of gravity with bent knees for balance and attacks.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/4DHzLvLd-0Y" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Double Leg Takedown</h3>
+                <div class="technique-content">
+                    <p>Shoot in to grab both legs and drive opponent to mat.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/wxNAEByjOoA?si=PNOCdMWzvjk69eIQ"  allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Single Leg Takedown</h3>
+                <div class="technique-content">
+                    <p>Attack one leg with leverage and drive to finish.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/mCRx-fBm8zE" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Sprawl (Defense)</h3>
+                <div class="technique-content">
+                    <p>Counter takedowns by dropping hips and sprawling legs back.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/6DYyE4pB7qs" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Guard Pass</h3>
+                <div class="technique-content">
+                    <p>Break past opponent's guard to dominant side control.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/pQk4XysuCCw" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Side Control</h3>
+                <div class="technique-content">
+                    <p>Dominant position for pressure, transitions, and attacks.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/p8HVLapZKO0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
