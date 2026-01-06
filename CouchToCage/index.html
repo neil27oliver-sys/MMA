@@ -295,7 +295,7 @@
     <!-- Paywall Modal -->
     <div id="paywall-modal">
         <div class="paywall-content">
-            <h2>Unlock Full Access – $3 Lifetime</h2>
+            <h2>Unlock Full Access – $27.9 Lifetime</h2>
             <p>One-time payment • Everything unlocked forever</p>
             <div id="paypal-button-container"></div>
             <div class="paywall-footer">
@@ -323,7 +323,7 @@
             createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
-                        amount: { value: '3.00' }
+                        amount: { value: '27.9' }
                     }],
                     application_context: { shipping_preference: "NO_SHIPPING" }
                 });
@@ -351,6 +351,7 @@
 
 </body>
 </html>
+
 
 
 
